@@ -1,6 +1,13 @@
 import Head from "next/head";
+import styled from "styled-components";
 import styles from "../styles/Home.module.css";
 import { getAllJobs } from "../lib/webflow";
+
+const Title = styled.h1`
+  font-size: 58px;
+  padding-bottom: 10px;
+  border-bottom: 8px solid black;
+`;
 
 export default function Home({ allJobs }) {
   return (
@@ -20,7 +27,7 @@ export default function Home({ allJobs }) {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>Black Valley Jobs</h1>
+        <Title>Black Valley Jobs</Title>
 
         <ul>
           {allJobs.map((job) => (
