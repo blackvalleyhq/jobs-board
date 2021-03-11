@@ -2,11 +2,13 @@ import Head from "next/head";
 import styled from "styled-components";
 import styles from "../styles/Home.module.css";
 import { getAllJobs } from "../lib/webflow";
+import { fontSize, neutral } from "../theme/utils";
 
 const Title = styled.h1`
-  font-size: 58px;
+  font-size: ${fontSize("xxl")};
   padding-bottom: 10px;
-  border-bottom: 8px solid black;
+  color: ${neutral("dark")};
+  border-bottom: 8px solid ${neutral("dark")};
 `;
 
 export default function Home({ allJobs }) {
