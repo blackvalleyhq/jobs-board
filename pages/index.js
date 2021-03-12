@@ -59,53 +59,58 @@ export default function Home({ allJobs }) {
 const SearchContainer = styled.div`
   border-radius: 4px;
   margin: 0 1rem;
-  border: 1px solid black;
-  border-radius: 6px;
   width: 100%;
   height: 5rem;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;`
+  justify-content: space-between;
+  border-radius: 8px 8px 8px 8px;
+  box-shadow: 0px 7px 10px 3px rgba(134,134,134,0.80);`
 SearchContainer.displayName = 'SearchContainer'
 
 const InputBar = styled.input`
   width: 80%;
   display: inline;
   outline: none;
-  font-size: 1.6rem;`
+  font-size: 1.6rem;
+  border: none;
+  border-radius: 8px;
+  padding: 0 1rem;`
 InputBar.displayName = 'InputBar'
 
 const SubmitButton = styled.button`
   width: 20%;
   background: #80E0BE;
   border: none;
-  outline: none;`
+  outline: none;
+  border-radius: 0 8px 8px 0;`
 SubmitButton.displayName = 'SubmitButton'
 
 function Search({ allJobs, setSearchResults }) {
   const [searchText, setSearchText] = useState('')
 
-  const fuse = new Fuse(allJobs, {
-    keys: ['name']
+  const fuse = new Fuse(allJobs, { 
+    keys: ['name', 'company'], 
+    options: {
+      findAllMatches: true, 
+      shouldSort: true,
+    }
   })
 
-  const handleSearch = (e) => {
-    setSearchText(e.target.value)
-    const searchResults = fuse.search(searchText)
+  const handleSearch = async (e) => {
+    //set search text value
+    await setSearchText(e.target.value)
 
-    const newSearchResults = searchResults.length > 0 ? searchResults : allJobs
-    const names = newSearchResults.map(el => el?.item?.name || el)
-
-    setSearchResults(allJobs.filter( job => names.includes(job.name)))
-    console.log(names)
-    
+    //run fuse search & return the new job listings
+    let newSearchResults = fuse.search(searchText)
+    setSearchResults(newSearchResults.map(el => el.item))
   }
 
   return (
     <SearchContainer>
       <InputBar type="text" onChange={handleSearch}/>
       <SubmitButton>
-      <SearchIcon />
+        <SearchIcon />
       </SubmitButton>
     </SearchContainer>
   )
