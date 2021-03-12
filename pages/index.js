@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import styled from "styled-components";
 import styles from "../styles/Home.module.css";
 import { getAllJobs } from "../lib/webflow";
@@ -29,17 +30,17 @@ export default function Home({ allJobs }) {
       <main className={styles.main}>
         <Title>Black Valley Jobs</Title>
 
-        <ul>
+        <div>
           {allJobs.map((job) => (
-            <li key={job.slug}>
-              <a href="#">
+            <Link href={`/listing/${job.slug}`} key={job.slug}>
+              <a>
                 <div>
-                  <h3>{job.name}</h3>
+                <h3>{job.name}</h3>
                 </div>
               </a>
-            </li>
+            </Link>
           ))}
-        </ul>
+        </div>
       </main>
     </div>
   );
