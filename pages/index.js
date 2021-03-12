@@ -30,17 +30,15 @@ export default function Home({ allJobs }) {
       <main className={styles.main}>
         <Title>Black Valley Jobs</Title>
 
-        <div>
+        <ul>
           {allJobs.map((job) => (
             <Link href={`/listing/${job.slug}`} key={job.slug}>
-              <a>
-                <div>
+              <li>
                 <h3>{job.name}</h3>
-                </div>
-              </a>
+              </li>
             </Link>
           ))}
-        </div>
+        </ul>
       </main>
     </div>
   );

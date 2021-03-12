@@ -1,16 +1,15 @@
+import Link from "next/link";
 import { getAllJobs } from "../../lib/webflow";
 
 const JobListing = ({ jobData }) => {
-  console.log(jobData);
-  const { name, company } = jobData;
+  const { name, company, description, applyLink } = jobData;
+
   return (
     <div>
       <h1>{name}</h1>
       <h3>{company}</h3>
-      <p>{jobData["job-description"]}</p>
-      <a href={jobData["apply-link"]} target="_blank">
-        Apply now
-      </a>
+      <p>{description}</p>
+      <Link href={applyLink}>Apply now</Link>
     </div>
   );
 };
@@ -31,11 +30,15 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async ({ params }) => {
   const jobSlug = params.slug;
   const allJobs = await getAllJobs();
-  const jobList = allJobs.filter((job) => job.slug === jobSlug);
-
+  const jobListing = allJobs.find((job) => job.slug === jobSlug);
+  const job = (jobListing) => ({
+    ...jobListing,
+    description: jobListing["job-description"],
+    applyLink: jobListing["apply-link"],
+  });
   return {
     props: {
-      jobData: jobList[0],
+      jobData: job(jobListing),
     },
   };
 };
