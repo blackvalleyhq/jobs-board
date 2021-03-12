@@ -31,14 +31,14 @@ export const getStaticProps = async ({ params }) => {
   const jobSlug = params.slug;
   const allJobs = await getAllJobs();
   const jobListing = allJobs.find((job) => job.slug === jobSlug);
-  const job = (jobListing) => ({
+  const mapJobListingKeys = (jobListing) => ({
     ...jobListing,
     description: jobListing["job-description"],
     applyLink: jobListing["apply-link"],
   });
   return {
     props: {
-      jobData: job(jobListing),
+      jobData: mapJobListingKeys(jobListing),
     },
   };
 };
