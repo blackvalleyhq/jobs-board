@@ -56,6 +56,9 @@ export default function Home({ allJobs }) {
 }
 
 /* SEARCH BAR */
+/* 
+  TODO: Add media queries for desktop, tablet, and mobile (dependent on header being completed) 
+*/
 const SearchContainer = styled.div`
   border-radius: 4px;
   margin: 0 1rem;
