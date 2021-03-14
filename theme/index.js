@@ -1,3 +1,5 @@
+import { darken } from "polished";
+
 const defaultFontStack = [
   "Roboto",
   "-apple-system",
@@ -14,7 +16,10 @@ const defaultFontStack = [
 
 export const theme = {
   color: {
-    primary: "#80E0BE",
+    primary: {
+      default: "#80E0BE",
+      dark: darken(0.1, "#80E0BE"),
+    },
     neutral: {
       dark: "#363636",
       light: "#E5E5E5",
