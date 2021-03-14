@@ -1,13 +1,14 @@
 import { ThemeProvider } from "styled-components";
 import { theme } from "../theme";
 import "../styles/globals.css";
-import NavBar from "../components/NavBar";
+import Layout from "../components/Layout";
 
 function MyApp({ Component, pageProps }) {
   return (
     <ThemeProvider theme={theme}>
-      <NavBar />
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </ThemeProvider>
   );
 }
