@@ -12,7 +12,8 @@
  * `
  */
 
-export const color = (key = "primary") => ({ theme }) => theme.color[key];
+export const color = (key = "primary", shade = "default") => ({ theme }) =>
+  theme.color[key][shade];
 
 export const neutral = (key = "dark") => ({ theme }) =>
   theme.color.neutral[key];
