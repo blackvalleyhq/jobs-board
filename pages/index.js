@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import styled from "styled-components";
 import styles from "../styles/Home.module.css";
 import { getAllJobs } from "../lib/webflow";
@@ -33,13 +34,11 @@ export default function Home({ allJobs }) {
 
         <ul>
           {allJobs.map((job) => (
-            <li key={job.slug}>
-              <a href="#">
-                <div>
-                  <h3>{job.name}</h3>
-                </div>
-              </a>
-            </li>
+            <Link href={`/listing/${job.slug}`} key={job.slug}>
+              <li>
+                <h3>{job.name}</h3>
+              </li>
+            </Link>
           ))}
         </ul>
       </main>
