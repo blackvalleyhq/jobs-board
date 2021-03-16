@@ -3,7 +3,7 @@ import { useState } from 'react'
 import styled from "styled-components";
 import styles from "../styles/Home.module.css";
 import { getAllJobs } from "../lib/webflow";
-import { fontSize, neutral } from "../theme/utils";
+import { fontSize, neutral, color } from "../theme/utils";
 import Fuse from 'fuse.js';
 import SearchIcon from '../public/bv-caret-right.svg'
 
@@ -15,7 +15,7 @@ const Title = styled.h1`
 `
 
 export default function Home({ allJobs }) {
-  const [searchResults, setSearchResults] = useState(allJobs)
+  const [searchResults, onComplete] = useState(allJobs)
   return (
     <div className={styles.container}>
       <Head>
@@ -35,7 +35,7 @@ export default function Home({ allJobs }) {
       <main className={styles.main}>
         <Title>Black Valley Jobs</Title>
 
-        <Search allJobs={allJobs} setSearchResults={setSearchResults}/>
+        <Search allJobs={allJobs} onComplete={onComplete}/>
 
         <ul>
           {
@@ -72,26 +72,50 @@ const SearchContainer = styled.div`
 SearchContainer.displayName = 'SearchContainer'
 
 const InputBar = styled.input`
-  width: 80%;
+  width: 150px;
+  flex-grow: 3;
   display: inline;
   outline: none;
-  font-size: 1.6rem;
+  font-size: ${fontSize("l")};
   border: none;
   border-radius: 8px;
   padding: 0 1rem;`
 InputBar.displayName = 'InputBar'
 
 const SubmitButton = styled.button`
-  width: 20%;
-  background: #80E0BE;
+  width: 33px;
+  flex-grow: 1;
+  background: ${color('primary')};
   border: none;
   outline: none;
   border-radius: 0 8px 8px 0;`
 SubmitButton.displayName = 'SubmitButton'
 
-function Search({ allJobs, setSearchResults }) {
-  const [searchText, setSearchText] = useState('')
+/* TODO: Change color property of LABEL and HINTEXT to ${neutral('white')} */
+const Label = styled.label`
+  font-size: ${fontSize("xl")};
+  color: ${color('neutral')};`
+Label.displayName = 'Label'
 
+const HintText = styled.p`
+font-size: ${fontSize("l")};
+color: ${color('neutral')};`
+HintText.displayName = 'HintText'
+
+const OffscreenText = styled.span`
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;`
+OffscreenText.displayName = 'OffscreenText'
+
+
+function Search({ allJobs, onComplete }) {
   const fuse = new Fuse(allJobs, { 
     keys: ['name', 'company'], 
     options: {
@@ -100,22 +124,28 @@ function Search({ allJobs, setSearchResults }) {
     }
   })
 
-  const handleSearch = async (e) => {
-    //set search text value
-    await setSearchText(e.target.value)
+  const handleSearch = (e) => {
+    const {target: {value}} = e
 
-    //run fuse search & return the new job listings
-    let newSearchResults = fuse.search(searchText)
-    setSearchResults(newSearchResults.map(el => el.item))
+    if (!value) return onComplete(allJobs)
+
+    const results = fuse.search(value)
+    return onComplete(results.map(({item}) => item))
   }
 
   return (
-    <SearchContainer>
-      <InputBar type="text" onChange={handleSearch}/>
-      <SubmitButton>
-        <SearchIcon />
-      </SubmitButton>
-    </SearchContainer>
+    <>
+      <Label htmlFor="search-input">Find a job
+        <HintText>Search for a keyword, company or job title</HintText>
+      </Label>
+      <SearchContainer>
+        <InputBar type="text" onChange={handleSearch} id="search-input"/>
+        <SubmitButton>
+          <SearchIcon />
+          <OffscreenText>Submit search</OffscreenText>
+        </SubmitButton>
+      </SearchContainer>
+    </>
   )
 }
 
