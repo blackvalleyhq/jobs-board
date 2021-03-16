@@ -7,8 +7,7 @@ const Navigation = styled.nav`
   background-color: ${neutral("dark")};
 `;
 
-const Logo = styled.div`
-`;
+const Logo = styled.div``;
 
 const NavBar = () => {
   return (
