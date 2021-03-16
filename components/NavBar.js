@@ -3,13 +3,11 @@ import Link from "next/link";
 import styled from "styled-components";
 import { neutral } from "../theme/utils";
 
-const Navigation = styled.div`
-  height: 80px;
+const Navigation = styled.nav`
   background-color: ${neutral("dark")};
 `;
 
 const Logo = styled.div`
-  padding: 5px 20px;
 `;
 
 const NavBar = () => {
@@ -17,7 +15,12 @@ const NavBar = () => {
     <Navigation>
       <Logo>
         <Link href="/">
-          <Image src="/bv-logo.svg" width="65" height="75" />
+          <Image
+            src="/bv-logo.svg"
+            width="87"
+            height="90"
+            alt="Black Valley Logo"
+          />
         </Link>
       </Logo>
     </Navigation>
