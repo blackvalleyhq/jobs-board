@@ -4,6 +4,7 @@ import styled from "styled-components";
 import styles from "../styles/Home.module.css";
 import { getAllJobs } from "../lib/webflow";
 import { fontSize, neutral } from "../theme/utils";
+import JobsList from "../components/JobsList";
 
 const Title = styled.h1`
   font-size: ${fontSize("xxl")};
@@ -31,16 +32,7 @@ export default function Home({ allJobs }) {
 
       <main className={styles.main}>
         <Title>Black Valley Jobs</Title>
-
-        <ul>
-          {allJobs.map((job) => (
-            <Link href={`/listing/${job.slug}`} key={job.slug}>
-              <li>
-                <h3>{job.name}</h3>
-              </li>
-            </Link>
-          ))}
-        </ul>
+        <JobsList listings={allJobs} />
       </main>
     </div>
   );
