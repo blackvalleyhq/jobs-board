@@ -26,7 +26,7 @@ const JobListing = ({ jobData }) => {
     <PageLayout>
       <ContentWrapper>
         <Head>
-          <title>Black Valley | Listing </title>
+          <title>Black Valley | {company} </title>
         </Head>
         <ButtonContainer>
           <Button href={"/"} children={"Back to Job Listings"} />
