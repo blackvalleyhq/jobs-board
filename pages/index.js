@@ -68,8 +68,9 @@ const SearchContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   border-radius: 8px 8px 8px 8px;
-  box-shadow: 0px 7px 10px 3px rgba(134,134,134,0.80);`
-SearchContainer.displayName = 'SearchContainer'
+  box-shadow: 0px 7px 10px 3px rgba(134,134,134,0.80);
+`
+
 
 const InputBar = styled.input`
   width: 150px;
@@ -88,19 +89,19 @@ const SubmitButton = styled.button`
   background: ${color('primary')};
   border: none;
   outline: none;
-  border-radius: 0 8px 8px 0;`
-SubmitButton.displayName = 'SubmitButton'
+  border-radius: 0 8px 8px 0;
+`
 
 /* TODO: Change color property of LABEL and HINTEXT to ${neutral('white')} */
 const Label = styled.label`
   font-size: ${fontSize("xl")};
-  color: ${color('neutral')};`
-Label.displayName = 'Label'
+  color: ${color('neutral')};
+`
 
 const HintText = styled.p`
-font-size: ${fontSize("l")};
-color: ${color('neutral')};`
-HintText.displayName = 'HintText'
+  font-size: ${fontSize("l")};
+  color: ${color('neutral')};
+`
 
 const OffscreenText = styled.span`
   border: 0;
@@ -111,8 +112,9 @@ const OffscreenText = styled.span`
   overflow: hidden;
   padding: 0;
   position: absolute;
-  white-space: nowrap;`
-OffscreenText.displayName = 'OffscreenText'
+  white-space: nowrap;
+`
+
 
 
 function Search({ allJobs, onComplete }) {
