@@ -7,13 +7,13 @@ const JobListWrapper = styled.ul``;
 const JobListing = styled.li`
   list-style-type: none;
   border-bottom: 2px solid ${neutral("light")};
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 `;
 const JobRow = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
 `;
 const CompanyInitials = styled.div`
   height: 4rem;
@@ -31,8 +31,20 @@ const CompanyInitials = styled.div`
 const JobTitle = styled.h3`
   margin-bottom: 0;
 `;
+const JobDetail = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+`;
+const CompanyTime = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
 const CompanyName = styled.p`
-  margin-top: 0.5rem;
+  margin-right: 2rem;
+  margin-block-start: 0.65em;
+  margin-block-end: 0.65em;
 `;
 
 const JobsList = ({ listings }) => {
@@ -44,10 +56,13 @@ const JobsList = ({ listings }) => {
             <JobListing key={listing.slug}>
               <JobRow>
                 <CompanyInitials>AB</CompanyInitials>
-                <div>
+                <JobDetail>
                   <JobTitle>{listing.name}</JobTitle>
-                  <CompanyName>{listing.slug}</CompanyName>
-                </div>
+                  <CompanyTime>
+                    <CompanyName>{listing.slug}</CompanyName>
+                    <span>1 month ago</span>
+                  </CompanyTime>
+                </JobDetail>
               </JobRow>
             </JobListing>
           );
