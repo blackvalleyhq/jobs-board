@@ -1,7 +1,12 @@
 import styled from "styled-components";
 import { neutral, color, fontSize } from "../theme/utils";
 
-const Row = styled.div`
+const JobList = styled.li`
+  list-style-type: none;
+  border-bottom: 2px solid ${neutral("light")};
+`;
+
+const JobRow = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -39,19 +44,21 @@ const CompanyName = styled.p`
   margin-block-end: 0.65em;
 `;
 
-const JobRow = ({listing}) => {
+const JobListing = ({ listing }) => {
   return (
-    <Row>
-      <CompanyInitials>AB</CompanyInitials>
-      <JobDetail>
-        <JobTitle>{listing.name}</JobTitle>
-        <CompanyTime>
-          <CompanyName>{listing.slug}</CompanyName>
-          <span>1 month ago</span>
-        </CompanyTime>
-      </JobDetail>
-    </Row>
+    <JobList>
+      <JobRow>
+        <CompanyInitials>AB</CompanyInitials>
+        <JobDetail>
+          <JobTitle>{listing.name}</JobTitle>
+          <CompanyTime>
+            <CompanyName>{listing.slug}</CompanyName>
+            <span>1 month ago</span>
+          </CompanyTime>
+        </JobDetail>
+      </JobRow>
+    </JobList>
   );
 };
 
-export default JobRow;
+export default JobListing;
