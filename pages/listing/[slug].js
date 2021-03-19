@@ -3,18 +3,8 @@ import Link from "next/link";
 import { Button } from "../../components/button";
 import styled from "styled-components";
 import { getAllJobs } from "../../lib/webflow";
+import { ContentWrapper, Main } from "../../styles";
 
-const PageLayout = styled.div`
-  box-sizing: content-box;
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-`;
-
-const ContentWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
 const ButtonContainer = styled.div`
   margin: 3rem 0;
   align-self: flex-end;
@@ -23,7 +13,7 @@ const JobListing = ({ jobData }) => {
   const { name, company, description, applyLink } = jobData;
 
   return (
-    <PageLayout>
+    <Main>
       <ContentWrapper>
         <Head>
           <title>Black Valley | {company} </title>
@@ -38,7 +28,7 @@ const JobListing = ({ jobData }) => {
           <Link href={applyLink}>Apply now</Link>
         </div>
       </ContentWrapper>
-    </PageLayout>
+    </Main>
   );
 };
 
