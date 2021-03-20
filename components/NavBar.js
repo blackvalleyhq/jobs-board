@@ -13,13 +13,15 @@ const NavBar = () => {
   return (
     <Navigation>
       <Logo>
-        <Link href="/">
-          <Image
-            src="/bv-logo.svg"
-            width="87"
-            height="90"
-            alt="Black Valley Logo"
-          />
+        <Link href={"/"}>
+          <a>
+            <Image
+              src="/bv-logo.svg"
+              width={87}
+              height={90}
+              alt="Black Valley Logo"
+            />
+          </a>
         </Link>
       </Logo>
     </Navigation>

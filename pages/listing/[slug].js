@@ -35,7 +35,9 @@ const JobListing = ({ jobData }) => {
           <h1>{name}</h1>
           <h3>{company}</h3>
           <p>{description}</p>
-          <Link href={applyLink}>Apply now</Link>
+          <Link href={applyLink}>
+            <a>Apply now</a>
+          </Link>
         </div>
       </ContentWrapper>
     </PageLayout>
