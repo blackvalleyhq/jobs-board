@@ -8,13 +8,15 @@ const JobListWrapper = styled.ul`
   }
 `;
 
-const JobsList = ({ listings }) => {
+const JobsList = ({ searchResults }) => {
   return (
     <ContentWrapper>
       <JobListWrapper>
-        {listings.map((listing) => {
-          return <JobListing listing={listing} key={listing.slug} />;
-        })}
+        {searchResults.length <= 0
+          ? "No jobs found"
+          : searchResults.map((listing) => {
+              return <JobListing listing={listing} key={listing.slug} />;
+            })}
       </JobListWrapper>
     </ContentWrapper>
   );
