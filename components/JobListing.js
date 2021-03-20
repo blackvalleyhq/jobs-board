@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styled from "styled-components";
 import { neutral, color, fontSize } from "../theme/utils";
 
@@ -47,16 +48,18 @@ const CompanyName = styled.p`
 const JobListing = ({ listing }) => {
   return (
     <JobList>
-      <JobRow>
-        <CompanyInitials>AB</CompanyInitials>
-        <JobDetail>
-          <JobTitle>{listing.name}</JobTitle>
-          <CompanyTime>
-            <CompanyName>{listing.slug}</CompanyName>
-            <span>1 month ago</span>
-          </CompanyTime>
-        </JobDetail>
-      </JobRow>
+      <Link href={`/listing/${listing.slug}`}>
+        <JobRow>
+          <CompanyInitials>AB</CompanyInitials>
+          <JobDetail>
+            <JobTitle>{listing.name}</JobTitle>
+            <CompanyTime>
+              <CompanyName>{listing.slug}</CompanyName>
+              <span>1 month ago</span>
+            </CompanyTime>
+          </JobDetail>
+        </JobRow>
+      </Link>
     </JobList>
   );
 };

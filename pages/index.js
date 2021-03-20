@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Link from "next/link";
 import styled from "styled-components";
 import styles from "../styles/Home.module.css";
 import { getAllJobs } from "../lib/webflow";
