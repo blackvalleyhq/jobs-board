@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Fuse from "fuse.js";
 import SearchIcon from "../public/bv-caret-right.svg";
-import { fontSize, color } from '../theme/utils'
+import { fontSize, color, neutral } from '../theme/utils'
 
 /* SEARCH BAR */
 /* 
@@ -9,14 +9,15 @@ import { fontSize, color } from '../theme/utils'
 */
 
 const Container = styled.div`
-  width: 100%;
+  width: 90%;
   max-width: 650px;
-  justify-self: flex-end;
+  color: ${neutral("white")};
+  margin-top: -8rem;
 `;
 
 const SearchBar = styled.div`
   border-radius: 4px;
-  margin: 0 1rem;
+  margin: 0;
   width: 100%;
   height: 5rem;
   display: flex;
@@ -51,12 +52,10 @@ const SubmitButton = styled.button`
 /* TODO: Change color property of LABEL and HINTTEXT to ${neutral('white')} */
 const Label = styled.label`
   font-size: ${fontSize("xl")};
-  margin-left: 1rem;
 `;
 
 const HintText = styled.p`
   font-size: ${fontSize("l")};
-  margin-left: 1rem;
 `;
 
 const OffscreenText = styled.span`

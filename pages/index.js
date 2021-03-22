@@ -6,6 +6,7 @@ import { getAllJobs } from "../lib/webflow";
 import { fontSize, neutral, color } from "../theme/utils";
 import JobsList from "../components/JobsList";
 import Header from '../components/Header'
+import Search from '../components/Search'
 
 const Title = styled.h1`
   font-size: ${fontSize("xxl")};
@@ -33,6 +34,7 @@ export default function Home({ allJobs }) {
       </Head>
 
       <Header allJobs={allJobs} onComplete={onComplete}/>
+      <Search allJobs={allJobs} onComplete={onComplete}/>
       <main className={styles.main}>
         <JobsList searchResults={searchResults} />
       </main>

@@ -5,7 +5,7 @@ import Search from './Search'
 const Container = styled.header`
   background-color: ${neutral("dark")};
   width: 100%;
-  height: 500px;
+  height: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,7 +26,6 @@ const Header = ({allJobs, onComplete}) => {
   return (
     <Container>
       <Title>Jobs</Title>
-      <Search allJobs={allJobs} onComplete={onComplete}/>
     </Container>
   )
 }
