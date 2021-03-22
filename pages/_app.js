@@ -1,5 +1,6 @@
 import { ThemeProvider } from "styled-components";
 import { theme } from "../theme";
+import "../styles/reset.css";
 import "../styles/globals.css";
 import Layout from "../components/Layout";
 
