@@ -44,7 +44,7 @@ const NavBar = () => {
           <Link href="/">
             <a>
               <Image
-                src="/bv-logo.svg"
+                src="/bv-logo.png"
                 width="87"
                 height="90"
                 alt="Black Valley Logo"
