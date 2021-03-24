@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { neutral, fontSize } from "../theme/utils";
-import Search from './Search'
 
 const Container = styled.header`
   background-color: ${neutral("dark")};
