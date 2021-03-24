@@ -50,7 +50,7 @@ const JobListing = ({ listing }) => {
     <JobList>
       <Link href={`/listing/${listing.slug}`}>
         <JobRow>
-          <CompanyInitials>AB</CompanyInitials>
+          <CompanyInitials>{getFirstLetters(listing.name)}</CompanyInitials>
           <JobDetail>
             <JobTitle>{listing.name}</JobTitle>
             <CompanyTime>
@@ -65,3 +65,16 @@ const JobListing = ({ listing }) => {
 };
 
 export default JobListing;
+
+const getFirstLetters = (companyName) => {
+  let result = [];
+  const convertToArray = companyName.split(" ").map((word) => word[0]);
+
+  if (convertToArray.length > 2) {
+    result = convertToArray.splice(2);
+    return convertToArray.join("").toUpperCase();
+  }
+
+  return convertToArray.join("").toUpperCase();
+};
+
