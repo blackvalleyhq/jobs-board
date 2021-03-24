@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { fontSize, typeface, neutral } from "../theme/utils";
@@ -43,11 +42,11 @@ const NavBar = () => {
         <Logo>
           <Link href="/">
             <a>
-              <Image
-                src="/bv-logo.png"
+              <img
+                src="/bv-logo.svg"
+                alt="Black Valley Logo"
                 width="87"
                 height="90"
-                alt="Black Valley Logo"
               />
             </a>
           </Link>
