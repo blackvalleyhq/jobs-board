@@ -1,52 +1,73 @@
 import Head from "next/head";
 import { useState } from "react";
 import styled from "styled-components";
-import styles from "../styles/Home.module.css";
 import { getAllJobs } from "../lib/webflow";
-import { fontSize, neutral, color } from "../theme/utils";
-import JobsList from "../components/JobsList";
-import Header from '../components/Header'
-import Search from '../components/Search'
+import { fontSize, neutral } from "../theme/utils";
+import { Main, ContentWrapper } from "../styles";
+import { Search } from "../components/search";
+
+const PageHeader = styled.header`
+  background-color: ${neutral("dark")};
+  color: ${neutral("white")};
+  width: 100%;
+`;
+
+const SearchWrapper = styled.div`
+  margin-bottom: -1.5rem;
+`;
+
+const PageBody = styled.div`
+  padding-top: 1.5rem;
+`;
 
 const Title = styled.h1`
   font-size: ${fontSize("xxl")};
-  padding-bottom: 10px;
-  color: ${neutral("dark")};
-  border-bottom: 8px solid ${neutral("dark")};
+  text-align: center;
 `;
 
 export default function Home({ allJobs }) {
   const [searchResults, onComplete] = useState(allJobs);
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>Black Valley | Jobs</title>
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,400;1,700&display=swap"
-          rel="stylesheet"
-        />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header allJobs={allJobs} onComplete={onComplete}/>
-      <Search allJobs={allJobs} onComplete={onComplete}/>
-      <main className={styles.main}>
-        <JobsList searchResults={searchResults} />
-      </main>
+      <Main>
+        <PageHeader>
+          <ContentWrapper>
+            <Title>Jobs</Title>
+            <SearchWrapper>
+              <Search allJobs={allJobs} onComplete={onComplete} />
+            </SearchWrapper>
+          </ContentWrapper>
+        </PageHeader>
+        <PageBody>
+          <ContentWrapper>
+            <ul>
+              {searchResults.length <= 0
+                ? "No jobs found"
+                : searchResults.map((job) => (
+                    <li key={job.slug}>
+                      <a href="#">
+                        <div>
+                          <h3>{job.name}</h3>
+                        </div>
+                      </a>
+                    </li>
+                  ))}
+            </ul>
+          </ContentWrapper>
+        </PageBody>
+      </Main>
     </div>
   );
 }
 
-
-
-
 export async function getStaticProps() {
   const allJobs = await getAllJobs();
+
+  console.log(allJobs);
 
   return {
     props: {
