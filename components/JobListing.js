@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styled from "styled-components";
+import { format, formatDistance } from "date-fns";
 import { neutral, color, fontSize } from "../theme/utils";
 
 const JobList = styled.li`
@@ -55,7 +56,7 @@ const JobListing = ({ listing }) => {
             <JobTitle>{listing.name}</JobTitle>
             <CompanyTime>
               <CompanyName>{listing.slug}</CompanyName>
-              <span>1 month ago</span>
+              <span>{dateStamp(listing["published-on"])}</span>
             </CompanyTime>
           </JobDetail>
         </JobRow>
@@ -78,3 +79,13 @@ const getFirstLetters = (companyName) => {
   return convertToArray.join("").toUpperCase();
 };
 
+const dateStamp = (datePosted) => {
+  const today = format(new Date(), "yyyy,M,d H:m:s");
+  const postDate = new Date(datePosted);
+  const formatDatePosted = format(postDate, "yyyy,M,d H:m:s");
+
+  const result = formatDistance(new Date(formatDatePosted), new Date(today), {
+    addSuffix: true,
+  });
+  return result;
+};
