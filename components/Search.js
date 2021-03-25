@@ -1,11 +1,11 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 import Fuse from "fuse.js";
 import SearchIcon from "../public/bv-caret-right.svg";
-import { fontSize, color, neutral } from '../theme/utils'
+import { fontSize, color, neutral } from "../theme/utils";
 
 /* SEARCH BAR */
-/* 
-  TODO: Add media queries for desktop, tablet, and mobile (dependent on header being completed) 
+/*
+  TODO: Add media queries for desktop, tablet, and mobile (dependent on header being completed)
 */
 
 const Container = styled.div`
@@ -25,7 +25,7 @@ const SearchBar = styled.div`
   flex-direction: row;
   justify-content: space-between;
   border-radius: 8px 8px 8px 8px;
-  box-shadow: 0px 3px 5px 0px rgba(128,128,128,0.75);
+  box-shadow: 0px 3px 5px 0px rgba(128, 128, 128, 0.75);
 `;
 
 const InputBar = styled.input`
@@ -57,7 +57,7 @@ const Label = styled.label`
 
 const HintText = styled.p`
   font-size: ${fontSize("m")};
-  margin: .5rem 0 1rem 0;
+  margin: 0.5rem 0 1rem 0;
 `;
 
 const OffscreenText = styled.span`
@@ -72,7 +72,7 @@ const OffscreenText = styled.span`
   white-space: nowrap;
 `;
 
-function Search({ allJobs, onComplete }) {
+export function Search({ allJobs, onComplete }) {
   const fuse = new Fuse(allJobs, {
     keys: ["name", "company"],
     options: {
@@ -108,5 +108,3 @@ function Search({ allJobs, onComplete }) {
     </Container>
   );
 }
-
-export default Search
