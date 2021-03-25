@@ -49,7 +49,7 @@ const JobListing = ({ listing }) => {
       <Link href={`/listing/${listing.slug}`}>
         <a>
           <JobRow>
-            <CompanyInitials>AB</CompanyInitials>
+            <CompanyInitials>{getInitials(listing.name)}</CompanyInitials>
             <JobDetail>
               <JobTitle>{listing.name}</JobTitle>
               <CompanyTime>
@@ -66,16 +66,14 @@ const JobListing = ({ listing }) => {
 
 export default JobListing;
 
-const getFirstLetters = (companyName) => {
+const getInitials = (companyName) => {
   const initials = companyName.split(" ").map((word) => word[0]);
   const [firstInitial, secondInitial] = initials;
 
   if (initials.length === 1) {
-   return firstInitial.toUpperCase()
+    return firstInitial.toUpperCase();
   }
-    return initials.join("").toUpperCase();
-  }
-  return `${firstInitial}${secondInitial}`.toUpperCase();
+    return `${firstInitial}${secondInitial}`.toUpperCase();
 };
 
 const getDateStamp = (datePosted) => formatDistance(new Date(datePosted), Date.now(), { addSuffix: true })
