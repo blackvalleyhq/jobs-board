@@ -5,6 +5,7 @@ import { getAllJobs } from "../lib/webflow";
 import { fontSize, neutral } from "../theme/utils";
 import { Main, ContentWrapper } from "../styles";
 import { Search } from "../components/Search";
+import { JobsList } from "../components/JobsList";
 
 const PageHeader = styled.header`
   background-color: ${neutral("dark")};
@@ -18,6 +19,7 @@ const SearchWrapper = styled.div`
 
 const PageBody = styled.div`
   padding-top: 1.5rem;
+  width: 100%;
 `;
 
 const Title = styled.h1`
@@ -44,19 +46,7 @@ export default function Home({ allJobs }) {
         </PageHeader>
         <PageBody>
           <ContentWrapper>
-            <ul>
-              {searchResults.length <= 0
-                ? "No jobs found"
-                : searchResults.map((job) => (
-                    <li key={job.slug}>
-                      <a href="#">
-                        <div>
-                          <h3>{job.name}</h3>
-                        </div>
-                      </a>
-                    </li>
-                  ))}
-            </ul>
+            <JobsList listings={searchResults} />
           </ContentWrapper>
         </PageBody>
       </Main>

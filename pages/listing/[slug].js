@@ -18,9 +18,6 @@ const JobListing = ({ jobData }) => {
         <Head>
           <title>Black Valley | {company} </title>
         </Head>
-        <ButtonContainer>
-          <Button href={"/"} children={"Back to Job Listings"} />
-        </ButtonContainer>
         <div>
           <h1>{name}</h1>
           <h3>{company}</h3>

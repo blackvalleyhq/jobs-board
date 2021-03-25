@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { neutral, color, fontSize } from "../theme/utils";
 
 const JobList = styled.li`
-  list-style-type: none;
   border-bottom: 2px solid ${neutral("light")};
 `;
 
@@ -41,24 +40,24 @@ const CompanyTime = styled.div`
 `;
 const CompanyName = styled.p`
   margin-right: 2rem;
-  margin-block-start: 0.65em;
-  margin-block-end: 0.65em;
 `;
 
 const JobListing = ({ listing }) => {
   return (
     <JobList>
       <Link href={`/listing/${listing.slug}`}>
-        <JobRow>
-          <CompanyInitials>AB</CompanyInitials>
-          <JobDetail>
-            <JobTitle>{listing.name}</JobTitle>
-            <CompanyTime>
-              <CompanyName>{listing.slug}</CompanyName>
-              <span>1 month ago</span>
-            </CompanyTime>
-          </JobDetail>
-        </JobRow>
+        <a>
+          <JobRow>
+            <CompanyInitials>AB</CompanyInitials>
+            <JobDetail>
+              <JobTitle>{listing.name}</JobTitle>
+              <CompanyTime>
+                <CompanyName>{listing.slug}</CompanyName>
+                <span>1 month ago</span>
+              </CompanyTime>
+            </JobDetail>
+          </JobRow>
+        </a>
       </Link>
     </JobList>
   );
