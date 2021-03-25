@@ -1,25 +1,23 @@
 import styled from "styled-components";
 import JobListing from "./JobListing";
-// import DateStamp from "./DateStamp.js";
-const ContentWrapper = styled.div``;
-const JobListWrapper = styled.ul`
+
+const JobListWrapper = styled.ul.attrs(() => ({
+  role: "list",
+}))`
+  padding: 0;
   > * + * {
     margin-top: 0.5rem;
   }
 `;
 
-const JobsList = ({ searchResults }) => {
+export const JobsList = ({ listings }) => {
   return (
-    <ContentWrapper>
-      <JobListWrapper>
-        {searchResults.length <= 0
-          ? "No jobs found"
-          : searchResults.map((listing) => {
-              return <JobListing listing={listing} key={listing.slug} />;
-            })}
-      </JobListWrapper>
-    </ContentWrapper>
+    <JobListWrapper>
+      {listings.length <= 0
+        ? "No jobs found"
+        : listings.map((listing) => {
+            return <JobListing listing={listing} key={listing.slug} />;
+          })}
+    </JobListWrapper>
   );
 };
-
-export default JobsList;
