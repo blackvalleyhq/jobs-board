@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styled from "styled-components";
-import { format, formatDistance } from "date-fns";
+import { formatDistance } from "date-fns";
 import { neutral, color, fontSize } from "../theme/utils";
 
 const JobList = styled.li`
@@ -68,23 +68,17 @@ const JobListing = ({ listing }) => {
 export default JobListing;
 
 const getFirstLetters = (companyName) => {
-  let result = [];
-  const convertToArray = companyName.split(" ").map((word) => word[0]);
+  const initials = companyName.split(" ").map((word) => word[0]);
+  const [firstInitial, secondInitial] = initials;
 
-  if (convertToArray.length > 2) {
-    result = convertToArray.splice(2);
-    return convertToArray.join("").toUpperCase();
+  if (initials.length == 1) {
+    return initials.join("").toUpperCase();
   }
-
-  return convertToArray.join("").toUpperCase();
+  return `${firstInitial}${secondInitial}`.toUpperCase();
 };
 
 const dateStamp = (datePosted) => {
-  const today = format(new Date(), "yyyy,M,d H:m:s");
-  const postDate = new Date(datePosted);
-  const formatDatePosted = format(postDate, "yyyy,M,d H:m:s");
-
-  const result = formatDistance(new Date(formatDatePosted), new Date(today), {
+  const result = formatDistance(new Date(datePosted), Date.now(), {
     addSuffix: true,
   });
   return result;
