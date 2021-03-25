@@ -57,8 +57,6 @@ export default function Home({ allJobs }) {
 export async function getStaticProps() {
   const allJobs = await getAllJobs();
 
-  console.log(allJobs);
-
   return {
     props: {
       allJobs,
