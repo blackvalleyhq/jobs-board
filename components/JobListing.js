@@ -54,7 +54,7 @@ const JobListing = ({ listing }) => {
               <JobTitle>{listing.name}</JobTitle>
               <CompanyTime>
                 <CompanyName>{listing.slug}</CompanyName>
-                <span>1 month ago</span>
+                <span>{getDateStamp(listing["published-on"])}</span>
               </CompanyTime>
             </JobDetail>
           </JobRow>
@@ -76,9 +76,5 @@ const getInitials = (companyName) => {
     return `${firstInitial}${secondInitial}`.toUpperCase();
 };
 
-const getDateStamp = (datePosted) => formatDistance(new Date(datePosted), Date.now(), { addSuffix: true })
-  const result = formatDistance(new Date(datePosted), Date.now(), {
-    addSuffix: true,
-  });
-  return result;
-};
+const getDateStamp = (datePosted) =>
+  formatDistance(new Date(datePosted), Date.now(), { addSuffix: true });
