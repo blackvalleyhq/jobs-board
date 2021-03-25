@@ -79,7 +79,7 @@ const getFirstLetters = (companyName) => {
   return `${firstInitial}${secondInitial}`.toUpperCase();
 };
 
-const dateStamp = (datePosted) => {
+const getDateStamp = (datePosted) => formatDistance(new Date(datePosted), Date.now(), { addSuffix: true })
   const result = formatDistance(new Date(datePosted), Date.now(), {
     addSuffix: true,
   });
