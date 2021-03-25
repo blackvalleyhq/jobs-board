@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { getAllJobs } from "../lib/webflow";
 import { fontSize, neutral } from "../theme/utils";
 import { Main, ContentWrapper } from "../styles";
-import { Search } from "../components/search";
+import { Search } from "../components/Search";
 
 const PageHeader = styled.header`
   background-color: ${neutral("dark")};
