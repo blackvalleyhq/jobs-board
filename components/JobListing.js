@@ -71,7 +71,9 @@ const getFirstLetters = (companyName) => {
   const initials = companyName.split(" ").map((word) => word[0]);
   const [firstInitial, secondInitial] = initials;
 
-  if (initials.length == 1) {
+  if (initials.length === 1) {
+   return firstInitial.toUpperCase()
+  }
     return initials.join("").toUpperCase();
   }
   return `${firstInitial}${secondInitial}`.toUpperCase();
