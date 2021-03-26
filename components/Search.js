@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Fuse from "fuse.js";
-import SearchIcon from "../public/bv-caret-right.svg";
+import SearchIcon from "../public/bv-caret.svg";
 import { fontSize, color, neutral } from "../theme/utils";
 
 /* SEARCH BAR */
@@ -101,7 +101,11 @@ export function Search({ allJobs, onComplete }) {
       <SearchBar>
         <InputBar type="text" onChange={handleSearch} id="search-input" />
         <SubmitButton>
-          <SearchIcon />
+          <SearchIcon
+            width="32"
+            height="32"
+            style={{ transform: "rotate(90deg)" }}
+          />
           <OffscreenText>Submit search</OffscreenText>
         </SubmitButton>
       </SearchBar>

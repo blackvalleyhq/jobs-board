@@ -40,6 +40,7 @@ const ApplyLinkContainer = styled.div`
   position: sticky;
   bottom: 1rem;
   right: 1rem;
+  margin-top: 1rem;
   z-index: 10;
   display: flex;
   justify-content: flex-end;

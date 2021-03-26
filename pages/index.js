@@ -18,7 +18,7 @@ const SearchWrapper = styled.div`
 `;
 
 const PageBody = styled.div`
-  padding-top: 1.5rem;
+  padding-top: 3rem;
   width: 100%;
 `;
 
@@ -56,8 +56,6 @@ export default function Home({ allJobs }) {
 
 export async function getStaticProps() {
   const allJobs = await getAllJobs();
-
-  console.log(allJobs);
 
   return {
     props: {
