@@ -49,7 +49,7 @@ const JobListing = ({ listing }) => {
       <Link href={`/listing/${listing.slug}`}>
         <a>
           <JobRow>
-            <CompanyInitials>{getInitials(listing.name)}</CompanyInitials>
+            <CompanyInitials>{getInitials(listing.company)}</CompanyInitials>
             <JobDetail>
               <JobTitle>{listing.name}</JobTitle>
               <CompanyTime>
