@@ -18,7 +18,7 @@ const SearchWrapper = styled.div`
 `;
 
 const PageBody = styled.div`
-  padding-top: 1.5rem;
+  padding-top: 3rem;
   width: 100%;
 `;
 

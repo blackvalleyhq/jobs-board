@@ -54,7 +54,7 @@ const JobListing = ({ listing }) => {
             <JobDetail>
               <JobTitle>{listing.name}</JobTitle>
               <CompanyTime>
-                <CompanyName>{listing.slug}</CompanyName>
+                <CompanyName>{listing.company}</CompanyName>
                 <span>{getDateStamp(listing["published-on"])}</span>
               </CompanyTime>
             </JobDetail>

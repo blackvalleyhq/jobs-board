@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { fontSize, typeface, neutral } from "../theme/utils";
 import { ContentWrapper } from "../styles";
-import CaretLeft from "../public/bv-caret-left.svg";
+import BVCaret from "../public/bv-caret.svg";
 
 const Navigation = styled.nav`
   background-color: ${({ isLight }) =>
@@ -17,9 +17,10 @@ const NavigationBody = styled(ContentWrapper)`
   padding-left: 0;
 `;
 
-const Icon = styled(CaretLeft)`
+const Icon = styled(BVCaret)`
   width: 1.5rem;
   height: 1.5rem;
+  transform: rotate(-90deg);
 `;
 
 const BackLink = styled.a`
@@ -27,6 +28,7 @@ const BackLink = styled.a`
   font-family: ${typeface("display")};
   display: flex;
   align-items: center;
+  cursor: pointer;
 `;
 
 const Logo = styled.div``;

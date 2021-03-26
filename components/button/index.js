@@ -1,6 +1,5 @@
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
-import { useRouter } from "next/router";
 import { color, fontSize, neutral, typeface } from "../../theme/utils";
 
 const ButtonStyles = css`
@@ -13,6 +12,8 @@ const ButtonStyles = css`
   padding: 12px 24px;
   border-radius: 99999px;
   transition: background-color 200ms ease-out;
+  display: flex;
+  align-items: center;
 
   &:hover,
   &:focus {
@@ -29,15 +30,8 @@ const ButtonAsLink = styled.a`
 `;
 
 export const Button = ({ href, onClick, children }) => {
-  const router = useRouter();
-
-  const goTo = (e) => {
-    e.preventDefault();
-    router.push(href);
-  };
-
   return href ? (
-    <ButtonAsLink href={href} onClick={goTo}>
+    <ButtonAsLink href={href} target="_blank">
       {children}
     </ButtonAsLink>
   ) : (
