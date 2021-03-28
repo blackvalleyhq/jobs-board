@@ -5,7 +5,6 @@ const JobListWrapper = styled.ul.attrs(() => ({
   role: "list",
 }))`
   padding: 0;
-
   > * + * {
     margin-top: 0.5rem;
   }
