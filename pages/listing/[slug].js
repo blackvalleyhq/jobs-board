@@ -96,6 +96,13 @@ export const getStaticProps = async ({ params }) => {
   const jobSlug = params.slug;
   const allJobs = await getAllJobs();
   const jobListing = allJobs.find((job) => job.slug === jobSlug);
+
+  if (!jobListing) {
+    return {
+      notFound: true,
+    };
+  }
+
   const mapJobListingKeys = (jobListing) => ({
     ...jobListing,
     description: jobListing["job-description"],
