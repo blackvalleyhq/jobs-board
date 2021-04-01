@@ -61,5 +61,6 @@ export async function getStaticProps() {
     props: {
       allJobs,
     },
+    revalidate: 60,
   };
 }
