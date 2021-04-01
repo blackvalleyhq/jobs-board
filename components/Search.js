@@ -9,48 +9,45 @@ import { fontSize, color, neutral } from "../theme/utils";
 */
 
 const Container = styled.div`
-  width: 95%;
   max-width: 650px;
-  color: ${neutral("white")};
   margin: auto;
   margin-top: 1rem;
 `;
 
 const SearchBar = styled.div`
-  border-radius: 4px;
   margin: 0;
   width: 100%;
-  height: 3.8rem;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  border-radius: 8px 8px 8px 8px;
+  border-radius: 4px;
+  overflow: hidden;
   box-shadow: 0px 3px 5px 0px rgba(128, 128, 128, 0.75);
 `;
 
 const InputBar = styled.input`
-  width: 150px;
-  flex-grow: 3;
-  display: inline;
-  outline: none;
+  display: block;
+  flex-grow: 1;
   font-size: ${fontSize("l")};
-  border: none;
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-  padding: 0 1rem;
+  border: 2px solid ${neutral("white")};
+  padding: 0.75rem 1rem;
+  outline: 0;
+  margin: 0;
+  transition: border-color 100ms ease-out;
+
+  &:focus {
+    border-color: ${color("primary")};
+  }
 `;
 InputBar.displayName = "InputBar";
 
 const SubmitButton = styled.button`
-  width: 33px;
-  flex-grow: 1;
+  width: 60px;
   background: ${color("primary")};
   border: none;
   outline: none;
-  border-radius: 0px 4px 4px 0px;
+  margin: 0;
 `;
 
-/* TODO: Change color property of LABEL and HINTTEXT to ${neutral('white')} */
 const Label = styled.label`
   font-size: ${fontSize("xl")};
 `;
