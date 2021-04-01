@@ -32,6 +32,7 @@ const InputBar = styled.input`
   padding: 0.75rem 1rem;
   outline: 0;
   margin: 0;
+  border-radius: 0px;
   transition: border-color 100ms ease-out;
 
   &:focus {
