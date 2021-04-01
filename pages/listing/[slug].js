@@ -6,6 +6,7 @@ import { getAllJobs } from "../../lib/webflow";
 import { ContentWrapper, Main } from "../../styles";
 import { fontSize, typeface } from "../../theme/utils";
 import BVCaret from "../../public/bv-caret.svg";
+import { PillContainer } from '../../components/pill'
 
 const ListingBody = styled.article`
   position: relative;
@@ -53,6 +54,7 @@ const ButtonText = styled.span`
 
 const JobListing = ({ jobData }) => {
   const { name, company, description, applyLink, datePosted } = jobData;
+  const pills = [['Full-time', 'Marketing', 'Bournemouth, UK']]
 
   return (
     <Main>
@@ -64,6 +66,10 @@ const JobListing = ({ jobData }) => {
           <h1>{name}</h1>
           <CompanyName>{company}</CompanyName>
           <p>{datePosted}</p>
+          {/* pills prop will be replaced with jobData pills pulled from Webflow */}
+          {pills?.length > 0? 
+          <PillContainer pills={['Full-time', 'Marketing', 'Bournemouth, UK']}/>
+          :null}
         </ListingHead>
         <ListingBody>
           <Description dangerouslySetInnerHTML={{ __html: description }} />
