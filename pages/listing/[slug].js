@@ -54,9 +54,7 @@ const ButtonText = styled.span`
 
 const JobListing = ({ jobData }) => {
   const { name, company, description, applyLink, datePosted, pills } = jobData;
-  //Dummy props
-  // const pills = ['Full-time', 'Marketing', 'Bournemouth, UK']
-  // console.log(jobData)
+
 
   return (
     <Main>
@@ -68,7 +66,6 @@ const JobListing = ({ jobData }) => {
           <h1>{name}</h1>
           <CompanyName>{company}</CompanyName>
           <p>{datePosted}</p>
-          {/* pills prop will be replaced with jobData pills pulled from Webflow */}
           {pills?.length > 0? 
           <PillContainer pills={pills}/>
           :null}

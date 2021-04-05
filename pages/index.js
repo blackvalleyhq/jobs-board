@@ -28,7 +28,6 @@ const Title = styled.h1`
 `;
 
 export default function Home({ allJobs }) {
-  // console.log(allJobs)
   const [searchResults, onComplete] = useState(allJobs);
   return (
     <div>
