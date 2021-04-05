@@ -101,10 +101,6 @@ export const getStaticProps = async ({ params }) => {
   const jobSlug = params.slug;
   const allJobs = await getAllJobs();
   const jobListing = allJobs.find((job) => job.slug === jobSlug);
-  const listingMeta = ["type-of-contract", "job-category"];
-
-
-  const pills = listingMeta.map(el => jobListing[el])
 
   if (!jobListing) {
     return {
@@ -117,7 +113,7 @@ export const getStaticProps = async ({ params }) => {
     description: jobListing["job-description"],
     applyLink: jobListing["apply-link"],
     datePosted: format(new Date(jobListing["published-on"]), "do MMMM yyyy"),
-    pills
+    pills: jobListing.pills
   });
   return {
     props: {
