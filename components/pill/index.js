@@ -14,11 +14,11 @@ const Pill = styled.div`
 const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
-  * {
+  > * {
   margin-top: 1rem; // y spacing for all children
   }
 
-  * + * {
+  > * + * {
   margin-left: 1rem; // x spacing for all children apart from the first 
 }
 `;
