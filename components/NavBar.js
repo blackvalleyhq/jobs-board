@@ -42,7 +42,7 @@ const NavBar = () => {
     <Navigation isLight={isListing}>
       <NavigationBody>
         <Logo>
-          <Link href="/">
+          <Link href="https://www.blackvalley.co.uk/new-jobs">
             <a>
               <img
                 src="/bv-logo.svg"
@@ -54,7 +54,7 @@ const NavBar = () => {
           </Link>
         </Logo>
         {isListing ? (
-          <Link href="/">
+          <Link href="https://www.blackvalley.co.uk/new-jobs">
             <BackLink>
               <Icon />
               Back to Listings
