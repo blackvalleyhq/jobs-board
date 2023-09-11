@@ -43,18 +43,18 @@ const NavBar = () => {
       <NavigationBody>
         <Logo>
           <Link href="https://www.blackvalley.co.uk/new-jobs">
-            <a>
-              <img
-                src="/bv-logo.svg"
-                alt="Black Valley Logo"
-                width="87"
-                height="90"
-              />
-            </a>
+
+            <img
+              src="/bv-logo.svg"
+              alt="Black Valley Logo"
+              width="87"
+              height="90"
+            />
+
           </Link>
         </Logo>
         {isListing ? (
-          <Link href="https://www.blackvalley.co.uk/new-jobs">
+          <Link href="https://www.blackvalley.co.uk/new-jobs" legacyBehavior>
             <BackLink>
               <Icon />
               Back to Listings

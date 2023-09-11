@@ -48,18 +48,18 @@ const JobListing = ({ listing }) => {
   return (
     <JobList>
       <Link href={`/listing/${listing.slug}`}>
-        <a>
-          <JobRow>
-            <CompanyInitials>{getInitials(listing.company)}</CompanyInitials>
-            <JobDetail>
-              <JobTitle>{listing.name}</JobTitle>
-              <CompanyTime>
-                <CompanyName>{listing.company}</CompanyName>
-                <span>{getDateStamp(listing["published-on"])}</span>
-              </CompanyTime>
-            </JobDetail>
-          </JobRow>
-        </a>
+
+        <JobRow>
+          <CompanyInitials>{getInitials(listing.company)}</CompanyInitials>
+          <JobDetail>
+            <JobTitle>{listing.name}</JobTitle>
+            <CompanyTime>
+              <CompanyName>{listing.company}</CompanyName>
+              <span>{getDateStamp(listing["published-on"])}</span>
+            </CompanyTime>
+          </JobDetail>
+        </JobRow>
+
       </Link>
     </JobList>
   );
