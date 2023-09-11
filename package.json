@@ -21,6 +21,7 @@
     "webflow-api": "^0.5.0"
   },
   "devDependencies": {
+    "@netlify/plugin-nextjs": "^4.40.1",
     "babel-plugin-add-react-displayname": "^0.0.5",
     "prettier": "2.2.1"
   }
